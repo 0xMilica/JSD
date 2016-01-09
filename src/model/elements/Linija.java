@@ -9,9 +9,8 @@ import model.painters.LinijaPainter;
 
 public class Linija extends Oblik {
 
-
-	public Point2D pocetnaTacka;
-	public Point2D krajnjaTacka;
+	private Point2D pocetnaTacka;
+	private Point2D krajnjaTacka;
 
 	
 	public Linija(Paint paint, Stroke stroke, Point2D pocetnaTacka, Point2D krajnjaTacka) {
@@ -22,5 +21,26 @@ public class Linija extends Oblik {
 		this.krajnjaTacka = krajnjaTacka;
 		oblikPainter = new LinijaPainter(this);
 	}
+
+
+	public Point2D getPocetnaTacka() {
+		return pocetnaTacka;
+	}
+
+
+	public void setPocetnaTacka(Point2D pocetnaTacka) {
+		this.pocetnaTacka = pocetnaTacka;
+	}
+
+
+	public Point2D getKrajnjaTacka() {
+		return krajnjaTacka;
+	}
+
+
+	public void setKrajnjaTacka(Point2D krajnjaTacka) {
+		this.krajnjaTacka = krajnjaTacka;
+	}
+	
 	
 }

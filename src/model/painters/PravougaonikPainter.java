@@ -14,6 +14,8 @@ import model.elements.Pravougaonik;
 
 public class PravougaonikPainter extends OblikPainter{
 
+	private boolean isColorSet;
+	
 	public PravougaonikPainter(Oblik oblik) {
 		super(oblik);
 	}
@@ -22,10 +24,12 @@ public class PravougaonikPainter extends OblikPainter{
 	public void paint(Graphics2D g) {
 		
 		Pravougaonik pravougaonik = (Pravougaonik) oblik;
+		
 		if(pravougaonik.paint == null){
 			g.setPaint(Color.BLACK);
 		}
 		else{
+			isColorSet = true;
 			g.setPaint(pravougaonik.getPaint());
 		}
 		
@@ -36,8 +40,6 @@ public class PravougaonikPainter extends OblikPainter{
 			g.setStroke(pravougaonik.stroke);
 		}
 		
-		
-		//g.setStroke(linija.getStroke());
 		
 		if(getShape() == null){
 			
@@ -58,7 +60,9 @@ public class PravougaonikPainter extends OblikPainter{
 			g.draw(new Line2D.Double(new Point2D.Double(dx, dy), new Point2D.Double(bx, by)));
 			g.draw(new Line2D.Double(new Point2D.Double(bx, by), new Point2D.Double(ax, ay)));
 			
-			g.fillPolygon(new int[]{ax, bx, dx, cx}, new int[]{ay, by, dy, cy}, 4);
+			if(isColorSet){
+				g.fillPolygon(new int[]{ax, bx, dx, cx}, new int[]{ay, by, dy, cy}, 4);
+			}
 		}
 		else {
 			g.draw(getShape());

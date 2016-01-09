@@ -29,7 +29,7 @@ public class LinijaPainter extends OblikPainter {
 		//g.setStroke(linija.getStroke());
 		
 		if(getShape() == null){
-			g.draw(new Line2D.Double(linija.pocetnaTacka, linija.krajnjaTacka));
+			g.draw(new Line2D.Double(linija.getPocetnaTacka(), linija.getKrajnjaTacka()));
 		}
 		else {
 			g.draw(getShape());

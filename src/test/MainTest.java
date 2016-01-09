@@ -37,7 +37,7 @@ public class MainTest {
 		
 		//test pravougaonika
 		
-		Pravougaonik pravougaonik = new Pravougaonik(Color.RED, Oblik.dashed, new Point2D.Double(55, 55), new Point2D.Double(155, 200));
+		Pravougaonik pravougaonik = new Pravougaonik(null, Oblik.dashed, new Point2D.Double(55, 55), new Point2D.Double(155, 200));
 		oblici.add(pravougaonik);
 		
 		Elipsa elipsa = new Elipsa (Color.BLUE, null, new Point2D.Double(70,70), 100, 100);

@@ -11,6 +11,7 @@ import model.elements.Elipsa;
 
 public class ElipsaPainter extends OblikPainter{
 
+	private boolean isColorSet;
 	
 	public ElipsaPainter(Oblik oblik) {
 		super(oblik);
@@ -33,6 +34,7 @@ public class ElipsaPainter extends OblikPainter{
 		if(getShape() == null){
 			
 			g.draw(new Ellipse2D.Double(elipsa.getGornjiLeviUgao().getX(), elipsa.getGornjiLeviUgao().getY(), elipsa.getSirina(), elipsa.getVisina()));
+		
 		}
 		else {
 			g.draw(getShape());
