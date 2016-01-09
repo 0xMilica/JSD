@@ -4,6 +4,7 @@ import java.awt.AlphaComposite;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.geom.AffineTransform;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
@@ -17,7 +18,6 @@ public class Canvas extends JPanel {
 	public Canvas(){
 		super();
 	}
-	
 
 	@Override
 	public void paintComponent(Graphics g) {
@@ -34,7 +34,16 @@ public class Canvas extends JPanel {
 		for (int i=0; i<grafickiElementi.size(); i++){
 			
 			for(Oblik oblik : grafickiElementi.get(i).getKomponente()){
-				oblik.getPainter().paint(g2);
+				
+				final Graphics2D gT = (Graphics2D) g2.create();
+			    try {
+			    	oblik.getPainter().paint(gT);
+					
+			    } finally {
+			    	// za resetovanje svih nedefault-nih propertija Graphic2D objekta
+			    	gT.dispose();
+			    }
+				
 			}
 		}
 	}

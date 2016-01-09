@@ -1,8 +1,10 @@
 package model.painters;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Shape;
+import java.awt.geom.AffineTransform;
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 
@@ -26,6 +28,15 @@ public class PravougaonikPainter extends OblikPainter{
 		else{
 			g.setPaint(pravougaonik.getPaint());
 		}
+		
+		if (pravougaonik.stroke == null){
+			g.setStroke(new BasicStroke(5f));;
+		}
+		else{
+			g.setStroke(pravougaonik.stroke);
+		}
+		
+		
 		//g.setStroke(linija.getStroke());
 		
 		if(getShape() == null){
@@ -52,6 +63,7 @@ public class PravougaonikPainter extends OblikPainter{
 		else {
 			g.draw(getShape());
 		}
+		
 	}
 
 	@Override
