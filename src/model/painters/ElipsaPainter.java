@@ -20,24 +20,31 @@ public class ElipsaPainter extends OblikPainter{
 
 	@Override
 	public void paint(Graphics2D g) {
-		// TODO Auto-generated method stub
 		
 		Elipsa elipsa = (Elipsa) oblik;
 		
-		if(elipsa.paint == null){
-			g.setPaint(Color.BLACK);
+		if(elipsa.color == null){
+			g.setColor(Color.BLACK);
+		} else {
+			g.setColor(elipsa.getColor());
 		}
-		else{
-			g.setPaint(elipsa.getPaint());
-		}
-		//g.setStroke(linija.getStroke());
-		if(getShape() == null){
-			
-			g.draw(new Ellipse2D.Double(elipsa.getGornjiLeviUgao().getX(), elipsa.getGornjiLeviUgao().getY(), elipsa.getSirina(), elipsa.getVisina()));
 		
+		if(elipsa.stroke != null) {
+			g.setStroke(elipsa.getStroke());
+		}
+		
+		if(getShape() == null){
+			Ellipse2D ellipse = new Ellipse2D.Double(
+					elipsa.getGornjiLeviUgao().getX(), 
+					elipsa.getGornjiLeviUgao().getY(), 
+					elipsa.getSirina(), 
+					elipsa.getVisina());
+			g.draw(ellipse);
+			g.fill(ellipse);
 		}
 		else {
 			g.draw(getShape());
+			g.fill(getShape());
 		}
 		
 	}

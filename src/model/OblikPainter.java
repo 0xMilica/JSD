@@ -11,11 +11,9 @@ public abstract class OblikPainter {
 	protected Oblik oblik;
 	private Shape shape;
 	
-	public OblikPainter(Oblik oblik){
-		
+	public OblikPainter(Oblik oblik){		
 		this.oblik = oblik;
-	}
-	
+	}	
 	
 	public abstract void paint(Graphics2D g);
 	

@@ -1,5 +1,6 @@
 package model.elements;
 
+import java.awt.Color;
 import java.awt.Paint;
 import java.awt.Stroke;
 import java.awt.geom.Point2D;
@@ -13,8 +14,8 @@ public class Elipsa extends Oblik {
 	private double visina;
 	private double sirina;
 	
-	public Elipsa(Paint paint, Stroke stroke, Point2D gornjiLeviUgao, double visina, double sirina) {
-		super(paint, stroke);
+	public Elipsa(Color color, Stroke stroke, double ugao, Point2D gornjiLeviUgao, double visina, double sirina) {
+		super(color, stroke, ugao);
 		// TODO Auto-generated constructor stub
 		this.gornjiLeviUgao = gornjiLeviUgao;
 		this.visina = visina;

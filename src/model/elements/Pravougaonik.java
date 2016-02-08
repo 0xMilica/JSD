@@ -1,5 +1,6 @@
 package model.elements;
 
+import java.awt.Color;
 import java.awt.Paint;
 import java.awt.Stroke;
 import java.awt.geom.Point2D;
@@ -14,8 +15,8 @@ public class Pravougaonik extends Oblik {
 	private Point2D pocetnaTacka;
 	private Point2D krajnjaTacka;
 	
-	public Pravougaonik(Paint paint, Stroke stroke, Point2D pocetnaTacka, Point2D krajnjaTacka) {
-		super(paint, stroke);
+	public Pravougaonik(Color color, Stroke stroke, double ugao, Point2D pocetnaTacka, Point2D krajnjaTacka) {
+		super(color, stroke, ugao);
 		this.pocetnaTacka = pocetnaTacka;
 		this.krajnjaTacka = krajnjaTacka;
 		oblikPainter = new PravougaonikPainter(this);

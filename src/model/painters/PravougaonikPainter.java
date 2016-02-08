@@ -2,6 +2,7 @@ package model.painters;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.GradientPaint;
 import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.geom.AffineTransform;
@@ -15,7 +16,7 @@ import model.elements.Pravougaonik;
 public class PravougaonikPainter extends OblikPainter{
 
 	private boolean isColorSet;
-	
+	private GradientPaint gradientPaint;
 	public PravougaonikPainter(Oblik oblik) {
 		super(oblik);
 	}
@@ -25,12 +26,12 @@ public class PravougaonikPainter extends OblikPainter{
 		
 		Pravougaonik pravougaonik = (Pravougaonik) oblik;
 		
-		if(pravougaonik.paint == null){
-			g.setPaint(Color.BLACK);
+		if(pravougaonik.color == null){
+			g.setPaint(Color.black);
 		}
 		else{
 			isColorSet = true;
-			g.setPaint(pravougaonik.getPaint());
+			g.setPaint(pravougaonik.getColor());
 		}
 		
 		if (pravougaonik.stroke == null){
@@ -40,6 +41,7 @@ public class PravougaonikPainter extends OblikPainter{
 			g.setStroke(pravougaonik.stroke);
 		}
 		
+		g.rotate(Math.toRadians(pravougaonik.getUgao()));
 		
 		if(getShape() == null){
 			

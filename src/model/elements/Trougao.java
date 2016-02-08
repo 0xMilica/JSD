@@ -1,5 +1,6 @@
 package model.elements;
 
+import java.awt.Color;
 import java.awt.Paint;
 import java.awt.Stroke;
 import java.awt.geom.Point2D;
@@ -13,8 +14,8 @@ public class Trougao extends Oblik{
 	private Point2D b;
 	private Point2D c;
 	
-	public Trougao(Paint paint, Stroke stroke, Point2D a, Point2D b, Point2D c) {
-		super(paint, stroke);
+	public Trougao(Color color, Stroke stroke, double ugao, Point2D a, Point2D b, Point2D c) {
+		super(color, stroke, ugao);
 		this.a = a;
 		this.b = b;
 		this.c = c;

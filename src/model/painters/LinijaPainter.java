@@ -20,11 +20,11 @@ public class LinijaPainter extends OblikPainter {
 	public void paint(Graphics2D g) {
 		
 		Linija linija = (Linija) oblik;
-		if(linija.paint == null){
-			g.setPaint(Color.BLACK);
+		if(linija.color == null){
+			g.setPaint(Color.red);
 		}
 		else{
-			g.setPaint(linija.getPaint());
+			g.setPaint(linija.getColor());
 		}
 		//g.setStroke(linija.getStroke());
 		

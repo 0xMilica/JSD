@@ -20,11 +20,10 @@ public class TrougaoPainter extends OblikPainter{
 	public void paint(Graphics2D g) {
 		// TODO Auto-generated method stub
 		Trougao trougao = (Trougao) oblik;
-		if(trougao.paint == null){
-			g.setPaint(Color.BLACK);
-		}
-		else{
-			g.setPaint(trougao.getPaint());
+		if(trougao.color == null){
+			g.setPaint(Color.BLUE);
+		}else {
+			g.setPaint(trougao.getColor());
 		}
 		//g.setStroke(linija.getStroke());
 		
