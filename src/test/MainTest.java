@@ -9,6 +9,7 @@ import model.Element;
 import model.Oblik;
 import model.elements.Elipsa;
 import model.elements.Linija;
+import model.elements.Poligon;
 import model.elements.Pravougaonik;
 import model.elements.Trougao;
 import model.elements.ZaobljeniPravougaonik;
@@ -42,11 +43,14 @@ public class MainTest {
 		Trougao trougao = new Trougao(
 				Color.PINK, null, 90, new Point2D.Double(10,15), new Point2D.Double(20, 70), new Point2D.Double(30,30));
 		
+		Poligon poligon = new Poligon(Color.BLUE, null, 0,  new int[]{0,30,30,20,20,0}, new int[] {0,0,40,40,10,10}, 6 );
+		
 		oblici.add(linija);
 		oblici.add(pravougaonik);
 		oblici.add(zaobljeniPravougaonik);
 		oblici.add(elipsa);
 		oblici.add(trougao);
+		oblici.add(poligon);
 	}
 
 }
