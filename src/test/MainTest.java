@@ -26,9 +26,11 @@ public class MainTest {
 
 		Element element = new Element(oblici);
 		
-		Canvas canvas = mejnfrejm.getPanel();
+		Canvas canvas1 = mejnfrejm.getPanel(0);
+		Canvas canvas2 = mejnfrejm.getPanel(1);
 		
-		canvas.addElementToCanvas(element);
+		canvas1.addElementToCanvas(element);
+		canvas2.addElementToCanvas(element);
 		
 		Linija linija = new Linija(Color.GREEN, null, 0, new Point2D.Double(300,50), new Point2D.Double(600,50));
 		

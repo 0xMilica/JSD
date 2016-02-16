@@ -1,10 +1,11 @@
 package model;
 
 import java.awt.AlphaComposite;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
-import java.awt.geom.AffineTransform;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
@@ -12,16 +13,26 @@ import javax.swing.JPanel;
 public class Canvas extends JPanel {
 
 	private static final long serialVersionUID = 7525332486738555913L;
-	private ArrayList<Element> grafickiElementi = new ArrayList<Element>();
 	
+	private String naziv;
+	private int sirina;
+	private int duzina;
+	private Color bojaPodloge;
+	private ArrayList<Element> grafickiElementi = new ArrayList<Element>();
 
-	public Canvas(){
-		super();
+	public Canvas(String naziv, int sirina, int duzina, Color bojaPodloge){
+		this.sirina = sirina;
+		this.naziv = naziv;
+		this.duzina = duzina;
+		this.bojaPodloge = bojaPodloge;
+		
+		setPreferredSize(new Dimension(sirina, duzina));
 	}
 
 	@Override
 	public void paintComponent(Graphics g) {
-		//super.paintComponent(g);
+		super.paintComponent(g);
+		setBackground(bojaPodloge);
 		
 		Graphics2D g2 = (Graphics2D) g;
 		// Ukljucujemo omeksavanje ivica (antialiasing)
@@ -48,13 +59,47 @@ public class Canvas extends JPanel {
 		}
 	}
 	
-	public ArrayList<Element> getGrafickiElementi(){
-		
+	public String getNaziv() {
+		return naziv;
+	}
+
+	public void setNaziv(String naziv) {
+		this.naziv = naziv;
+	}
+
+	public int getSirina() {
+		return sirina;
+	}
+
+	public void setSirina(int sirina) {
+		this.sirina = sirina;
+	}
+
+	public int getDuzina() {
+		return duzina;
+	}
+
+	public void setDuzina(int duzina) {
+		this.duzina = duzina;
+	}
+
+	public Color getBoja() {
+		return bojaPodloge;
+	}
+
+	public void setBoja(Color boja) {
+		this.bojaPodloge = boja;
+	}
+
+	public ArrayList<Element> getGrafickiElementi(){	
 		return grafickiElementi;
 	}
 	
-	public void addElementToCanvas(Element element){
-		
+	public void setGrafickiElementi(ArrayList<Element> grafickiElementi) {
+		this.grafickiElementi = grafickiElementi;
+	}
+	
+	public void addElementToCanvas(Element element){		
 		grafickiElementi.add(element);
 	}
 	
