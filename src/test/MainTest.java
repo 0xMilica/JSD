@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import model.Canvas;
 import model.Element;
 import model.Oblik;
+import model.Pozicija;
 import model.elements.Elipsa;
 import model.elements.Linija;
 import model.elements.Poligon;
@@ -24,7 +25,7 @@ public class MainTest {
 
 		ArrayList<Oblik> oblici = new ArrayList<Oblik>();
 
-		Element element = new Element(oblici);
+		Element element = new Element(new Pozicija(1,1), oblici);
 		
 		Canvas canvas1 = mejnfrejm.getPanel(0);
 		Canvas canvas2 = mejnfrejm.getPanel(1);
