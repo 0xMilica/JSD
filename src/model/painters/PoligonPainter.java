@@ -19,26 +19,22 @@ public class PoligonPainter extends OblikPainter {
 	public void paint(Graphics2D g) {
 		Poligon poligon = (Poligon) oblik;
 
-		if(poligon.color == null) {
+		if (poligon.color == null) {
 			g.setColor(Color.RED);
 		} else {
 			g.setColor(poligon.getColor());
 		}
-		
+
 		g.rotate(Math.toRadians(poligon.getUgao()));
+
+		Polygon polygon = new Polygon(
+				poligon.getxTacke(), 
+				poligon.getyTacke(),
+				poligon.getBrojIvica());
 		
-		if(getShape() == null) {
-			Polygon polygon = new Polygon(
-					poligon.getxTacke(),  
-					poligon.getyTacke(), 
-					poligon.getBrojIvica());
-			g.draw(polygon);
-			g.fill(polygon);
-		} else {
-			g.draw(getShape());
-			g.draw(getShape());
-		}
-		
+		g.draw(polygon);
+		g.fill(polygon);
+
 	}
 
 	@Override

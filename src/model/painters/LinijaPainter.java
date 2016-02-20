@@ -11,29 +11,24 @@ import model.elements.Linija;
 
 public class LinijaPainter extends OblikPainter {
 
-	
 	public LinijaPainter(Oblik oblik) {
 		super(oblik);
 	}
 
 	@Override
 	public void paint(Graphics2D g) {
-		
+
 		Linija linija = (Linija) oblik;
-		if(linija.color == null){
+		
+		if (linija.color == null) {
 			g.setPaint(Color.red);
-		}
-		else{
+		} else {
 			g.setPaint(linija.getColor());
 		}
-		//g.setStroke(linija.getStroke());
-		
-		if(getShape() == null){
-			g.draw(new Line2D.Double(linija.getPocetnaTacka(), linija.getKrajnjaTacka()));
-		}
-		else {
-			g.draw(getShape());
-		}
+		// g.setStroke(linija.getStroke());
+
+		g.draw(new Line2D.Double(linija.getPocetnaTacka(), linija .getKrajnjaTacka()));
+
 	}
 
 	@Override

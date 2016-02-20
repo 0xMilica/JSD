@@ -9,7 +9,7 @@ import model.Oblik;
 import model.OblikPainter;
 import model.elements.Trougao;
 
-public class TrougaoPainter extends OblikPainter{
+public class TrougaoPainter extends OblikPainter {
 
 	public TrougaoPainter(Oblik oblik) {
 		super(oblik);
@@ -20,23 +20,17 @@ public class TrougaoPainter extends OblikPainter{
 	public void paint(Graphics2D g) {
 		// TODO Auto-generated method stub
 		Trougao trougao = (Trougao) oblik;
-		if(trougao.color == null){
+		if (trougao.color == null) {
 			g.setPaint(Color.BLUE);
-		}else {
+		} else {
 			g.setPaint(trougao.getColor());
 		}
-		//g.setStroke(linija.getStroke());
-		
-		if(getShape() == null){
-			
-			g.draw(new Line2D.Double(trougao.getA(), trougao.getB()));
-			g.draw(new Line2D.Double(trougao.getB(), trougao.getC()));
-			g.draw(new Line2D.Double(trougao.getC(), trougao.getA()));
-		
-		}
-		else {
-			g.draw(getShape());
-		}
+		// g.setStroke(linija.getStroke());
+
+		g.draw(new Line2D.Double(trougao.getA(), trougao.getB()));
+		g.draw(new Line2D.Double(trougao.getB(), trougao.getC()));
+		g.draw(new Line2D.Double(trougao.getC(), trougao.getA()));
+
 	}
 
 	@Override
@@ -45,5 +39,4 @@ public class TrougaoPainter extends OblikPainter{
 		return false;
 	}
 
-	
 }
