@@ -5,6 +5,7 @@ import java.awt.Stroke;
 import java.awt.geom.Point2D;
 
 import model.Oblik;
+import model.Pozicija;
 import model.painters.ZaobljeniPravougaonikPainter;
 
 public class ZaobljeniPravougaonik extends Oblik {
@@ -15,10 +16,10 @@ public class ZaobljeniPravougaonik extends Oblik {
 	private double sirinaLuka;
 	private double visinaLuka;
 	
-	public ZaobljeniPravougaonik(Color color, Stroke stroke, double ugao,
+	public ZaobljeniPravougaonik(Color color, Stroke stroke, double ugao, Pozicija pozicija,
 			Point2D lokacija, double sirinaPravougaonika,
 			double visinaPravougaonika, double sirinaLuka, double visinaLuka) {
-		super(color, stroke, ugao);
+		super(color, stroke, ugao, pozicija);
 		this.lokacija = lokacija;
 		this.sirinaPravougaonika = sirinaPravougaonika;
 		this.visinaPravougaonika = visinaPravougaonika;

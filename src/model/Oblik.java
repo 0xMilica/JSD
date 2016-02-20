@@ -2,7 +2,6 @@ package model;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
-import java.awt.Paint;
 import java.awt.Stroke;
 
 public abstract class Oblik {
@@ -11,6 +10,7 @@ public abstract class Oblik {
 	public Color color;
 	public Stroke stroke;
 	public double ugao;
+	public Pozicija pozicija;
 	public OblikPainter oblikPainter;
 
 	public final static BasicStroke dashed =
@@ -24,14 +24,23 @@ public abstract class Oblik {
 	 * @param color - boja i tip - farbanje
 	 * @param ugao - ugao za koji se oblik rotira
 	 */
-	public Oblik(Color color, Stroke stroke, double ugao){		
+	public Oblik(Color color, Stroke stroke, double ugao, Pozicija pozicija) {		
 		this.color = color;
 		this.stroke = stroke;
 		this.ugao = ugao;
+		this.pozicija = pozicija;
 	}
 	
 	public OblikPainter getPainter(){
 		return oblikPainter;
+	}
+
+	public OblikPainter getOblikPainter() {
+		return oblikPainter;
+	}
+
+	public void setOblikPainter(OblikPainter oblikPainter) {
+		this.oblikPainter = oblikPainter;
 	}
 
 	public Stroke getStroke() {
@@ -56,6 +65,14 @@ public abstract class Oblik {
 
 	public void setUgao(double ugao) {
 		this.ugao = ugao;
+	}
+
+	public Pozicija getPozicija() {
+		return pozicija;
+	}
+
+	public void setPozicija(Pozicija pozicija) {
+		this.pozicija = pozicija;
 	}
 
 }

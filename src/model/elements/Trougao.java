@@ -6,6 +6,7 @@ import java.awt.Stroke;
 import java.awt.geom.Point2D;
 
 import model.Oblik;
+import model.Pozicija;
 import model.painters.TrougaoPainter;
 
 public class Trougao extends Oblik{
@@ -14,8 +15,9 @@ public class Trougao extends Oblik{
 	private Point2D b;
 	private Point2D c;
 	
-	public Trougao(Color color, Stroke stroke, double ugao, Point2D a, Point2D b, Point2D c) {
-		super(color, stroke, ugao);
+	public Trougao(Color color, Stroke stroke, double ugao, Pozicija pozicija, 
+			Point2D a, Point2D b, Point2D c) {
+		super(color, stroke, ugao, pozicija);
 		this.a = a;
 		this.b = b;
 		this.c = c;
