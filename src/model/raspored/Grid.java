@@ -1,30 +1,51 @@
 package model.raspored;
 
-import java.awt.GridLayout;
+import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Grid extends GridLayout {
+/**
+ * Klasa koja opisuje grid raspored. Grid je opisan brojem kolona i redova.
+ * 
+ */
+public class Grid {
 
-	private static final long serialVersionUID = 9187283898060376091L;
-	
 	private int brojKolona;
 	private int brojRedova;
-	private int razmakV;
-	private int razmakH;
-	
+
 	public Grid(int brojRedova, int brojKolona) {
-		super(brojRedova, brojKolona);
 		this.brojRedova = brojRedova;
 		this.brojKolona = brojKolona;
 	}
 
-	public Grid(int brojRedova, int brojKolona, int razmakH, int razmakV) {
-		super(brojRedova, brojKolona, razmakH, razmakV);
-		this.brojRedova = brojRedova;
-		this.brojKolona = brojKolona;
-		this.razmakH = razmakH;
-		this.razmakV = razmakV;
+	private int getSirinaCelije(int sirinaNivoa) {
+		return sirinaNivoa / brojKolona;
 	}
-	
+
+	private int getVisinaCelije(int visinaNivoa) {
+		return visinaNivoa / brojRedova;
+	}
+
+	private List<Point2D> izracunajTacke(int sirinaNivoa, int visinaNivoa) {
+		List<Point2D> listaTacaka = new ArrayList<Point2D>();
+		Point2D tacka = null;
+
+		for (int i = 0; i < brojKolona; i++) {
+			for (int j = 0; j < brojRedova; j++) {
+				tacka = new Point2D.Double(
+						5 + i * getSirinaCelije(sirinaNivoa), 
+						5 + j * getVisinaCelije(visinaNivoa));
+				listaTacaka.add(tacka);
+			}
+		}
+
+		for (Point2D i : listaTacaka) {
+			System.out.println(i);
+		}
+
+		return listaTacaka;
+	}
+
 	public int getBrojKolona() {
 		return brojKolona;
 	}
@@ -41,20 +62,4 @@ public class Grid extends GridLayout {
 		this.brojRedova = brojRedova;
 	}
 
-	public int getRazmakV() {
-		return razmakV;
-	}
-
-	public void setRazmakV(int razmakV) {
-		this.razmakV = razmakV;
-	}
-
-	public int getRazmakH() {
-		return razmakH;
-	}
-
-	public void setRazmakH(int razmakH) {
-		this.razmakH = razmakH;
-	}
-	
 }
