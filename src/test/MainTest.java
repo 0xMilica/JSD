@@ -25,7 +25,7 @@ public class MainTest {
 
 		ArrayList<Oblik> oblici = new ArrayList<Oblik>();
 
-		Element element = new Element(oblici);
+		Element element = new Element("sto1", oblici);
 		
 		Canvas canvas1 = mejnfrejm.getPanel(0);
 		Canvas canvas2 = mejnfrejm.getPanel(1);
