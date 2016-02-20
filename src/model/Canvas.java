@@ -16,17 +16,17 @@ public class Canvas extends JPanel {
 	
 	private String naziv;
 	private int sirina;
-	private int duzina;
+	private int visina;
 	private Color bojaPodloge;
 	private ArrayList<Element> grafickiElementi = new ArrayList<Element>();
 
-	public Canvas(String naziv, int sirina, int duzina, Color bojaPodloge){
-		this.sirina = sirina;
+	public Canvas(String naziv, int sirina, int visina, Color bojaPodloge){
 		this.naziv = naziv;
-		this.duzina = duzina;
+		this.sirina = sirina;
+		this.visina = visina;
 		this.bojaPodloge = bojaPodloge;
 		
-		setPreferredSize(new Dimension(sirina, duzina));
+		setPreferredSize(new Dimension(sirina, visina));
 	}
 
 	@Override
@@ -75,12 +75,12 @@ public class Canvas extends JPanel {
 		this.sirina = sirina;
 	}
 
-	public int getDuzina() {
-		return duzina;
+	public int getVisina() {
+		return visina;
 	}
 
-	public void setDuzina(int duzina) {
-		this.duzina = duzina;
+	public void setVisina(int visina) {
+		this.visina = visina;
 	}
 
 	public Color getBoja() {
