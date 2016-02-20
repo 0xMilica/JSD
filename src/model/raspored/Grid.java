@@ -16,6 +16,9 @@ public class Grid {
 	public Grid(int brojRedova, int brojKolona) {
 		this.brojRedova = brojRedova;
 		this.brojKolona = brojKolona;
+		
+		setBrojKolona(brojKolona);
+		setBrojRedova(brojRedova);
 	}
 
 	private int getSirinaCelije(int sirinaNivoa) {
@@ -26,7 +29,7 @@ public class Grid {
 		return visinaNivoa / brojRedova;
 	}
 
-	private List<Point2D> izracunajTacke(int sirinaNivoa, int visinaNivoa) {
+	public List<Point2D> izracunajTacke(int sirinaNivoa, int visinaNivoa) {
 		List<Point2D> listaTacaka = new ArrayList<Point2D>();
 		Point2D tacka = null;
 
@@ -51,6 +54,9 @@ public class Grid {
 	}
 
 	public void setBrojKolona(int brojKolona) {
+		if (brojKolona < 1) {
+			brojKolona = 1;
+		}
 		this.brojKolona = brojKolona;
 	}
 
@@ -59,6 +65,9 @@ public class Grid {
 	}
 
 	public void setBrojRedova(int brojRedova) {
+		if (brojRedova < 1) {
+			brojRedova = 1;
+		}
 		this.brojRedova = brojRedova;
 	}
 
