@@ -1,7 +1,6 @@
 package model.elements;
 
 import java.awt.Color;
-import java.awt.Paint;
 import java.awt.Stroke;
 import java.awt.geom.Point2D;
 
@@ -29,11 +28,43 @@ public class Trougao extends Oblik{
 		return a;
 	}
 	
+	public void setA(Point2D a) {
+		this.a = a;
+	}
+
 	public Point2D getB(){
 		return b;
 	}
-	
+
+	public void setB(Point2D b) {
+		this.b = b;
+	}
+
 	public Point2D getC(){
 		return c;
+	}
+
+	public void setC(Point2D c) {
+		this.c = c;
+	}
+	
+	public double getSirina() {
+		double minX = Double.MAX_VALUE;
+		double maxX = -Double.MAX_VALUE;
+
+		double[] tacke = new double[3];
+		tacke[0] = a.getX();
+		tacke[1] = b.getX();
+		tacke[2] = c.getX();
+		
+		for(int i = 0; i < tacke.length; i++) {
+		    double x = tacke[i];
+		    minX = Math.min(minX, x);
+		    maxX = Math.max(maxX, x); 
+		}
+
+		double sirina = maxX - minX;
+		
+		return sirina;
 	}
 }

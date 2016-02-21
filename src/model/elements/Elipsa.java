@@ -13,9 +13,9 @@ public class Elipsa extends Oblik {
 	private Point2D gornjiLeviUgao;
 	private double visina;
 	private double sirina;
-	
-	public Elipsa(Color color, Stroke stroke, double ugao, Pozicija pozicija, 
-			Point2D gornjiLeviUgao, double visina, double sirina ) {
+
+	public Elipsa(Color color, Stroke stroke, double ugao, Pozicija pozicija,
+			Point2D gornjiLeviUgao, double visina, double sirina) {
 		super(color, stroke, ugao, pozicija);
 		this.gornjiLeviUgao = gornjiLeviUgao;
 		this.visina = visina;
@@ -23,15 +23,28 @@ public class Elipsa extends Oblik {
 		oblikPainter = new ElipsaPainter(this);
 	}
 
-	public Point2D getGornjiLeviUgao(){
+	public Point2D getGornjiLeviUgao() {
 		return gornjiLeviUgao;
 	}
 
-	public double getVisina(){
+	public void setGornjiLeviUgao(Point2D gornjiLeviUgao) {
+		this.gornjiLeviUgao = gornjiLeviUgao;
+	}
+
+	public double getVisina() {
 		return visina;
 	}
-	
-	public double getSirina(){
+
+	public void setVisina(double visina) {
+		this.visina = visina;
+	}
+
+	public double getSirina() {
 		return sirina;
 	}
+
+	public void setSirina(double sirina) {
+		this.sirina = sirina;
+	}
+
 }

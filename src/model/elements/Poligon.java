@@ -45,5 +45,23 @@ public class Poligon extends Oblik {
 	public void setBrojIvica(int brojIvica) {
 		this.brojIvica = brojIvica;
 	}
+	
+	public double getSirina() {
+		double minX = Double.MAX_VALUE;
+		double maxX = -Double.MAX_VALUE;
+
+		int[] tacke = getxTacke();
+		
+		for(int i = 0; i < tacke.length; i++) {
+		    double x = tacke[i];
+		    minX = Math.min(minX, x);
+		    maxX = Math.max(maxX, x); 
+		}
+
+		double sirina = maxX - minX;
+		
+		return sirina;
+	}
+	
 
 }
