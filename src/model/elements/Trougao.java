@@ -67,4 +67,24 @@ public class Trougao extends Oblik{
 		
 		return sirina;
 	}
+	
+	public double getVisina() {
+		double minY = Double.MAX_VALUE;
+		double maxY = -Double.MAX_VALUE;
+		
+		double[] tacke = new double[3];
+		tacke[0] = a.getY();
+		tacke[1] = b.getY();
+		tacke[2] = c.getY();
+		
+		for(int i = 0; i < tacke.length; i++) {
+		    double y = tacke[i];
+		    minY = Math.min(minY, y);
+		    maxY = Math.max(maxY, y);
+		}
+		
+		double visina = maxY - minY;
+		
+		return visina;
+	}
 }

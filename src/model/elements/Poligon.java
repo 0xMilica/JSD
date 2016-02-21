@@ -63,5 +63,20 @@ public class Poligon extends Oblik {
 		return sirina;
 	}
 	
+	public double getVisina() {
+		double minY = Double.MAX_VALUE;
+		double maxY = -Double.MAX_VALUE;
+		
+		int[] tacke = getyTacke();
 
+		for(int i = 0; i < tacke.length; i++) {
+		    double y = tacke[i];
+		    minY = Math.min(minY, y);
+		    maxY = Math.max(maxY, y);    
+		}
+		
+		double visina = maxY - minY;
+		
+		return visina;
+	}
 }
