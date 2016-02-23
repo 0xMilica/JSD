@@ -10,6 +10,13 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
+import model.raspored.Raspored;
+
+
+/**
+ * Klasa predstavlja model nivoa. Nivo je opisan sirinom, visinom, nazivom, raspored
+ *
+ */
 public class Canvas extends JPanel {
 
 	private static final long serialVersionUID = 7525332486738555913L;
@@ -18,14 +25,17 @@ public class Canvas extends JPanel {
 	private int sirina;
 	private int visina;
 	private Color bojaPodloge;
+	private Raspored raspored;
+	private Kafic kafic;
 	private ArrayList<Element> grafickiElementi = new ArrayList<Element>();
 
-	public Canvas(String naziv, int sirina, int visina, Color bojaPodloge){
+	public Canvas(String naziv, int sirina, int visina, Color bojaPodloge, Raspored raspored, Kafic kafic){
 		this.naziv = naziv;
 		this.sirina = sirina;
 		this.visina = visina;
 		this.bojaPodloge = bojaPodloge;
-		
+		this.raspored = raspored;
+		this.kafic = kafic;
 		setPreferredSize(new Dimension(sirina, visina));
 	}
 
@@ -41,6 +51,11 @@ public class Canvas extends JPanel {
 		// Postavljanje transparencije
 		g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.8f));
 
+		g2.drawLine(0, 300, 600, 300);
+		g2.drawLine(300, 0, 300, 600);
+		//g2.drawLine(0, 400, 300, 400);	
+		//g2.drawLine(400, 0, 400, 600);
+		
 		// ovde iscrtavamo sve elemente koji su na canvasu, bez obzira na tip
 		for (int i=0; i<grafickiElementi.size(); i++){
 			
@@ -48,7 +63,7 @@ public class Canvas extends JPanel {
 				
 				final Graphics2D gT = (Graphics2D) g2.create();
 			    try {
-			    	oblik.getPainter().paint(gT);
+			    	oblik.getOblikPainter().paint(gT);
 					
 			    } finally {
 			    	// za resetovanje svih nedefault-nih propertija Graphic2D objekta
@@ -83,12 +98,28 @@ public class Canvas extends JPanel {
 		this.visina = visina;
 	}
 
-	public Color getBoja() {
+	public Color getBojaPodloge() {
 		return bojaPodloge;
 	}
 
-	public void setBoja(Color boja) {
+	public void setBojaPodloge(Color boja) {
 		this.bojaPodloge = boja;
+	}
+	
+	public Raspored getRaspored() {
+		return raspored;
+	}
+
+	public void setRaspored(Raspored raspored) {
+		this.raspored = raspored;
+	}
+
+	public Kafic getKafic() {
+		return kafic;
+	}
+
+	public void setKafic(Kafic kafic) {
+		this.kafic = kafic;
 	}
 
 	public ArrayList<Element> getGrafickiElementi(){	

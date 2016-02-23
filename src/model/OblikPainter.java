@@ -3,10 +3,13 @@ package model;
 import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
 
+
+/**
+ * Apstraktna klasa koju nasledjuju svi konkretni painteri.
+ *
+ */
 public abstract class OblikPainter {
-	/* 
-	 * Oblik koji se iscrtava
-	 */
+
 	protected Oblik oblik;
 	
 	public OblikPainter(Oblik oblik){		
@@ -24,5 +27,5 @@ public abstract class OblikPainter {
 	public void setOblik(Oblik oblik) {
 		this.oblik = oblik;
 	}	
-
+	
 }

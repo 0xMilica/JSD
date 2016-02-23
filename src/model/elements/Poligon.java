@@ -3,6 +3,7 @@ package model.elements;
 import java.awt.Color;
 import java.awt.Stroke;
 
+import model.Element;
 import model.Oblik;
 import model.Pozicija;
 import model.painters.PoligonPainter;
@@ -13,15 +14,15 @@ public class Poligon extends Oblik {
 	private int[] yTacke;
 	private int brojIvica;
 	
-	public Poligon(Color color, Stroke stroke, double ugao, Pozicija pozicija,
-			int[] xTacke, int[] yTacke, int brojIvica) {
-		super(color, stroke, ugao, pozicija);
+	
+	public Poligon(Color color, double ugao, model.pozicija.Pozicija pozicija,
+			Element element, int[] xTacke, int[] yTacke, int brojIvica) {
+		super(color, ugao, pozicija, element);
 		this.xTacke = xTacke;
 		this.yTacke = yTacke;
 		this.brojIvica = brojIvica;
-		this.oblikPainter = new PoligonPainter(this);
 	}
-	
+
 	public int[] getxTacke() {
 		return xTacke;
 	}

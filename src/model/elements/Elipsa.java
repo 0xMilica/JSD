@@ -1,50 +1,43 @@
 package model.elements;
 
 import java.awt.Color;
-import java.awt.Stroke;
-import java.awt.geom.Point2D;
 
+import model.Element;
 import model.Oblik;
-import model.Pozicija;
 import model.painters.ElipsaPainter;
+import model.pozicija.Pozicija;
 
+/**
+ * Klasa predstavlja model elipse. Elipsa je opisana precnicima, ako su jednaki radi se o krugu.
+ *
+ */
 public class Elipsa extends Oblik {
 
-	private Point2D gornjiLeviUgao;
-	private double visina;
-	private double sirina;
-
-	public Elipsa(Color color, Stroke stroke, double ugao, Pozicija pozicija,
-			Point2D gornjiLeviUgao, double visina, double sirina) {
-		super(color, stroke, ugao, pozicija);
-		this.gornjiLeviUgao = gornjiLeviUgao;
-		this.visina = visina;
-		this.sirina = sirina;
-		oblikPainter = new ElipsaPainter(this);
+	private int precnik1;
+	private int precnik2;
+	
+	public Elipsa(Color color, double ugao, Pozicija pozicija, Element element, int precnik1,
+			int precnik2) {
+		super(color, ugao, pozicija, element);
+		this.precnik1 = precnik1;
+		this.precnik2 = precnik2;
+		this.oblikPainter = new ElipsaPainter(this);
 	}
 
-	public Point2D getGornjiLeviUgao() {
-		return gornjiLeviUgao;
+	public int getPrecnik1() {
+		return precnik1;
 	}
 
-	public void setGornjiLeviUgao(Point2D gornjiLeviUgao) {
-		this.gornjiLeviUgao = gornjiLeviUgao;
+	public void setPrecnik1(int precnik1) {
+		this.precnik1 = precnik1;
 	}
 
-	public double getVisina() {
-		return visina;
+	public int getPrecnik2() {
+		return precnik2;
 	}
 
-	public void setVisina(double visina) {
-		this.visina = visina;
+	public void setPrecnik2(int precnik2) {
+		this.precnik2 = precnik2;
 	}
-
-	public double getSirina() {
-		return sirina;
-	}
-
-	public void setSirina(double sirina) {
-		this.sirina = sirina;
-	}
-
+	
 }

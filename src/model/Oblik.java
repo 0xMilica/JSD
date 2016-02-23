@@ -1,54 +1,24 @@
 package model;
 
-import java.awt.BasicStroke;
 import java.awt.Color;
-import java.awt.Stroke;
+
+import model.pozicija.Pozicija;
+
 
 public abstract class Oblik {
 
-	public String naziv;
 	public Color color;
-	public Stroke stroke;
 	public double ugao;
 	public Pozicija pozicija;
 	public OblikPainter oblikPainter;
-
-	public final static BasicStroke dashed =
-	        new BasicStroke(1.0f,
-	                        BasicStroke.CAP_BUTT,
-	                        BasicStroke.JOIN_MITER,
-	                        10.0f, new float[]{10.0f}, 0.0f);
+	public Element element;
 	
-	/**
-	 * @param stroke - debljina i tip linije za iscrtavanje
-	 * @param color - boja i tip - farbanje
-	 * @param ugao - ugao za koji se oblik rotira
-	 */
-	public Oblik(Color color, Stroke stroke, double ugao, Pozicija pozicija) {		
+	public Oblik(Color color, double ugao, Pozicija pozicija, Element element) {
+		super();
 		this.color = color;
-		this.stroke = stroke;
 		this.ugao = ugao;
 		this.pozicija = pozicija;
-	}
-	
-	public OblikPainter getPainter(){
-		return oblikPainter;
-	}
-
-	public OblikPainter getOblikPainter() {
-		return oblikPainter;
-	}
-
-	public void setOblikPainter(OblikPainter oblikPainter) {
-		this.oblikPainter = oblikPainter;
-	}
-
-	public Stroke getStroke() {
-		return stroke;
-	}
-	
-	public void setStroke(Stroke stroke) {
-		this.stroke = stroke;
+		this.element = element;
 	}
 
 	public Color getColor() {
@@ -75,4 +45,20 @@ public abstract class Oblik {
 		this.pozicija = pozicija;
 	}
 
+	public OblikPainter getOblikPainter() {
+		return oblikPainter;
+	}
+
+	public void setOblikPainter(OblikPainter oblikPainter) {
+		this.oblikPainter = oblikPainter;
+	}
+
+	public Element getElement() {
+		return element;
+	}
+
+	public void setElement(Element element) {
+		this.element = element;
+	}
+	
 }

@@ -1,77 +1,33 @@
 package model.elements;
 
 import java.awt.Color;
-import java.awt.Stroke;
-import java.awt.geom.Point2D;
 
+import model.Element;
 import model.Oblik;
-import model.Pozicija;
 import model.painters.LinijaPainter;
+import model.pozicija.Pozicija;
 
+
+/**
+ * Klasa predstavlja model linije. Linija je opisana duzinom linije.
+ *
+ */
 public class Linija extends Oblik {
 
-	private Point2D pocetnaTacka;
-	private Point2D krajnjaTacka;
+	private int duzina;
 
-	public Linija(Color color, Stroke stroke, double ugao, Pozicija pozicija,
-			Point2D pocetnaTacka, Point2D krajnjaTacka) {
-		super(color, stroke, ugao, pozicija);
-		this.pocetnaTacka = pocetnaTacka;
-		this.krajnjaTacka = krajnjaTacka;
-		oblikPainter = new LinijaPainter(this);
+	public Linija(Color color, double ugao, Pozicija pozicija, Element element, int duzina) {
+		super(color, ugao, pozicija, element);
+		this.duzina = duzina;
+		this.oblikPainter = new LinijaPainter(this);
 	}
 
-	public Point2D getPocetnaTacka() {
-		return pocetnaTacka;
+	public int getDuzina() {
+		return duzina;
 	}
 
-	public void setPocetnaTacka(Point2D pocetnaTacka) {
-		this.pocetnaTacka = pocetnaTacka;
+	public void setDuzina(int duzina) {
+		this.duzina = duzina;
 	}
 
-	public Point2D getKrajnjaTacka() {
-		return krajnjaTacka;
-	}
-
-	public void setKrajnjaTacka(Point2D krajnjaTacka) {
-		this.krajnjaTacka = krajnjaTacka;
-	}
-
-	public double getSirina() {
-		double minX = Double.MAX_VALUE;
-		double maxX = -Double.MAX_VALUE;
-
-		double[] tacke = new double[2];
-		tacke[0] = pocetnaTacka.getX();
-		tacke[1] = krajnjaTacka.getX();
-
-		for(int i = 0; i < tacke.length; i++) {
-			double x = tacke[i];
-			minX = Math.min(minX, x);
-			maxX = Math.max(maxX, x);
-		}
-
-		double sirina = maxX - minX;
-
-		return sirina;
-	}
-
-	public double getVisina() {
-		double minY = Double.MAX_VALUE;
-		double maxY = -Double.MAX_VALUE;
-		
-		double[] tacke = new double[2];
-		tacke[0] = pocetnaTacka.getY();
-		tacke[1] = krajnjaTacka.getY();
-
-		for(int i = 0; i < tacke.length; i++) {
-		    double y = tacke[i];
-		    minY = Math.min(minY, y);
-		    maxY = Math.max(maxY, y);    
-		}
-		
-		double visina = maxY - minY;
-		
-		return visina;
-	}
 }

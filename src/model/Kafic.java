@@ -2,6 +2,10 @@ package model;
 
 import java.util.List;
 
+/**
+ * Klasa predstavlja model kafica. Kafic je opisan nazivom i nivoima koje poseduje.
+ *
+ */
 public class Kafic {
 	
 	private String naziv;
