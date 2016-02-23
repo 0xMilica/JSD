@@ -11,8 +11,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+
+
+
 import model.Canvas;
 import model.Kafic;
+import model.raspored.GridRaspored;
+import model.raspored.KoordinateRaspored;
+import model.raspored.Raspored;
+import model.raspored.StraneSvetaRaspored;
 
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame{
@@ -29,15 +36,25 @@ public class MainFrame extends JFrame{
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		listaNivoa = new ArrayList<Canvas>();
+		kafic = new Kafic("Ime kafica", listaNivoa);
 		
-		Canvas nivo1 = new Canvas("Ime prvog nivoa", 200, 200, Color.RED);
-		Canvas nivo2 = new Canvas("Ime drugog nivoa", 500, 400, Color.RED);
+		GridRaspored grid = new GridRaspored(3, 3);
+		GridRaspored grid2 = new GridRaspored(2, 2);
+		KoordinateRaspored koordinate = new KoordinateRaspored();
+		StraneSvetaRaspored straneSveta = new StraneSvetaRaspored();
+		
+		Canvas nivo1 = new Canvas("Ime prvog nivoa", 600, 600, Color.WHITE, grid, kafic);
+		grid.setNivo(nivo1);
+		
+		Canvas nivo3 = new Canvas("Drugi sprat", 500, 600, Color.WHITE, koordinate, kafic);
+		koordinate.setNivo(nivo3);
+		
+		Canvas nivo4 = new Canvas("Treci sprat", 600, 600, Color.WHITE, straneSveta, kafic);
+		straneSveta.setNivo(nivo4);
 		
 		listaNivoa.add(nivo1);
-		listaNivoa.add(nivo2);
-		
-		kafic = new Kafic("Ime kafica", listaNivoa);
-		setTitle(kafic.getNaziv());
+		listaNivoa.add(nivo3);
+		listaNivoa.add(nivo4);
 		
 		for(Canvas nivo : listaNivoa){
 			JPanel panel = new JPanel();
@@ -45,6 +62,7 @@ public class MainFrame extends JFrame{
 			tabbedPane.addTab(nivo.getNaziv(), panel);
 		}
 		
+		setTitle(kafic.getNaziv());
 		getContentPane().add(tabbedPane, BorderLayout.CENTER);		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);

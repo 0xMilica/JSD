@@ -1,5 +1,6 @@
 package model;
 
+// koristi se druga klasa.
 public class Pozicija {
 
 	private int brojReda;

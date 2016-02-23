@@ -51,8 +51,8 @@ public class Canvas extends JPanel {
 		// Postavljanje transparencije
 		g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.8f));
 
-		g2.drawLine(0, 300, 600, 300);
-		g2.drawLine(300, 0, 300, 600);
+		//g2.drawLine(0, 300, 600, 300);
+		//g2.drawLine(300, 0, 300, 600);
 		//g2.drawLine(0, 400, 300, 400);	
 		//g2.drawLine(400, 0, 400, 600);
 		
