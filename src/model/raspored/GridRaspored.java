@@ -2,18 +2,28 @@ package model.raspored;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-/**
- * Klasa koja opisuje grid raspored. Grid je opisan brojem kolona i redova.
- * 
- */
-public class Grid {
+import model.Canvas;
+
+public class GridRaspored extends Raspored {
 
 	private int brojKolona;
 	private int brojRedova;
 
-	public Grid(int brojRedova, int brojKolona) {
+	public GridRaspored(int brojKolona, int brojRedova) {
+		super();
+		this.brojKolona = brojKolona;
+		this.brojRedova = brojRedova;
+		
+		setBrojKolona(brojKolona);
+		setBrojRedova(brojRedova);
+	}
+
+	public GridRaspored(int brojRedova, int brojKolona, Canvas nivo) {
+		super(nivo);
 		this.brojRedova = brojRedova;
 		this.brojKolona = brojKolona;
 		
@@ -49,6 +59,24 @@ public class Grid {
 		return listaTacaka;
 	}
 
+	public Point2D izracunajTackuZaCeliju(int brojKolone, int brojReda) {
+		int visinaNivoa = getNivo().getVisina();
+		int sirinaNivoa = getNivo().getSirina();
+		
+		Point2D tacka = null;
+
+		for (int i = 0; i < brojKolona; i++) {
+			for (int j = 0; j < brojRedova; j++) {
+				if (i == brojKolone && j == brojReda) { 
+					tacka = new Point2D.Double(
+						0 + i * getSirinaCelije(sirinaNivoa), 
+						0 + j * getVisinaCelije(visinaNivoa));
+				}
+			}
+		}
+		return tacka;
+	}
+	
 	public int getBrojKolona() {
 		return brojKolona;
 	}
@@ -71,4 +99,10 @@ public class Grid {
 		this.brojRedova = brojRedova;
 	}
 
+	@Override
+	public String toString() {
+		return "GridRaspored ["+ brojKolona + ","+ brojRedova + "]";
+	}
+	
+	
 }
