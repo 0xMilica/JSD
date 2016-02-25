@@ -16,10 +16,10 @@ public class ZaobljeniPravougaonik extends Oblik {
 	private double sirinaLuka;
 	private double visinaLuka;
 	
-	public ZaobljeniPravougaonik(Color color, Stroke stroke, double ugao, Pozicija pozicija,
+	public ZaobljeniPravougaonik(Color color, Stroke stroke, double ugao,
 			Point2D lokacija, double sirinaPravougaonika,
 			double visinaPravougaonika, double sirinaLuka, double visinaLuka) {
-		super(color, stroke, ugao, pozicija);
+		super(color, stroke, ugao);
 		this.lokacija = lokacija;
 		this.sirinaPravougaonika = sirinaPravougaonika;
 		this.visinaPravougaonika = visinaPravougaonika;

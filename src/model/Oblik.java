@@ -10,7 +10,6 @@ public abstract class Oblik {
 	public Color color;
 	public Stroke stroke;
 	public double ugao;
-	public Pozicija pozicija;
 	public OblikPainter oblikPainter;
 
 	public final static BasicStroke dashed =
@@ -24,11 +23,10 @@ public abstract class Oblik {
 	 * @param color - boja i tip - farbanje
 	 * @param ugao - ugao za koji se oblik rotira
 	 */
-	public Oblik(Color color, Stroke stroke, double ugao, Pozicija pozicija) {		
+	public Oblik(Color color, Stroke stroke, double ugao) {		
 		this.color = color;
 		this.stroke = stroke;
 		this.ugao = ugao;
-		this.pozicija = pozicija;
 	}
 	
 	public OblikPainter getPainter(){
@@ -65,14 +63,6 @@ public abstract class Oblik {
 
 	public void setUgao(double ugao) {
 		this.ugao = ugao;
-	}
-
-	public Pozicija getPozicija() {
-		return pozicija;
-	}
-
-	public void setPozicija(Pozicija pozicija) {
-		this.pozicija = pozicija;
 	}
 
 }

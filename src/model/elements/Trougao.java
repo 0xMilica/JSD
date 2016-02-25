@@ -14,9 +14,9 @@ public class Trougao extends Oblik{
 	private Point2D b;
 	private Point2D c;
 	
-	public Trougao(Color color, Stroke stroke, double ugao, Pozicija pozicija, 
+	public Trougao(Color color, Stroke stroke, double ugao,
 			Point2D a, Point2D b, Point2D c) {
-		super(color, stroke, ugao, pozicija);
+		super(color, stroke, ugao);
 		this.a = a;
 		this.b = b;
 		this.c = c;

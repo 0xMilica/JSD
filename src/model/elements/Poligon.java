@@ -13,9 +13,9 @@ public class Poligon extends Oblik {
 	private int[] yTacke;
 	private int brojIvica;
 	
-	public Poligon(Color color, Stroke stroke, double ugao, Pozicija pozicija,
+	public Poligon(Color color, Stroke stroke, double ugao,
 			int[] xTacke, int[] yTacke, int brojIvica) {
-		super(color, stroke, ugao, pozicija);
+		super(color, stroke, ugao);
 		this.xTacke = xTacke;
 		this.yTacke = yTacke;
 		this.brojIvica = brojIvica;

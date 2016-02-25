@@ -14,9 +14,9 @@ public class Elipsa extends Oblik {
 	private double visina;
 	private double sirina;
 
-	public Elipsa(Color color, Stroke stroke, double ugao, Pozicija pozicija,
+	public Elipsa(Color color, Stroke stroke, double ugao,
 			Point2D gornjiLeviUgao, double visina, double sirina) {
-		super(color, stroke, ugao, pozicija);
+		super(color, stroke, ugao);
 		this.gornjiLeviUgao = gornjiLeviUgao;
 		this.visina = visina;
 		this.sirina = sirina;
