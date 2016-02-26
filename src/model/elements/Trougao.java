@@ -18,9 +18,9 @@ public class Trougao extends Oblik {
 	private int b;
 	private int c;
 	
-	public Trougao(Color color, double ugao, Pozicija pozicija, Element element, int a, int b,
+	public Trougao(Pozicija pozicija, Element element, Color color, double ugao, int a, int b,
 			int c) {
-		super(color, ugao, pozicija, element);
+		super(pozicija, element, color, ugao);
 		this.a = a;
 		this.b = b;
 		this.c = c;

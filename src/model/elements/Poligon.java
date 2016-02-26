@@ -17,7 +17,7 @@ public class Poligon extends Oblik {
 	
 	public Poligon(Color color, double ugao, model.pozicija.Pozicija pozicija,
 			Element element, int[] xTacke, int[] yTacke, int brojIvica) {
-		super(color, ugao, pozicija, element);
+		super(pozicija, element,color, ugao);
 		this.xTacke = xTacke;
 		this.yTacke = yTacke;
 		this.brojIvica = brojIvica;

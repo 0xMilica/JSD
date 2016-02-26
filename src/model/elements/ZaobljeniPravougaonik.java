@@ -22,9 +22,9 @@ public class ZaobljeniPravougaonik extends Oblik {
 	private int visinaLuka;
 	private int sirinaLuka;
 	
-	public ZaobljeniPravougaonik(Color color, double ugao, Pozicija pozicija, Element element, int a, int b,
+	public ZaobljeniPravougaonik(Pozicija pozicija, Element element, Color color, double ugao, int a, int b,
 			int visinaLuka, int sirinaLuka) {
-		super(color, ugao, pozicija, element);
+		super(pozicija, element, color, ugao);
 		this.a = a;
 		this.b = b;
 		this.visinaLuka = visinaLuka;

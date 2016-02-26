@@ -16,8 +16,8 @@ public class Linija extends Oblik {
 
 	private int duzina;
 
-	public Linija(Color color, double ugao, Pozicija pozicija, Element element, int duzina) {
-		super(color, ugao, pozicija, element);
+	public Linija(Pozicija pozicija, Element element, Color color, double ugao, int duzina) {
+		super(pozicija, element,color, ugao);
 		this.duzina = duzina;
 		this.oblikPainter = new LinijaPainter(this);
 	}

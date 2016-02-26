@@ -74,6 +74,7 @@ public class GridRaspored extends Raspored {
 				}
 			}
 		}
+		//System.out.println(tacka);
 		return tacka;
 	}
 	

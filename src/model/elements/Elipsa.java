@@ -16,9 +16,9 @@ public class Elipsa extends Oblik {
 	private int precnik1;
 	private int precnik2;
 	
-	public Elipsa(Color color, double ugao, Pozicija pozicija, Element element, int precnik1,
+	public Elipsa(Pozicija pozicija, Element element, Color color, double ugao, int precnik1,
 			int precnik2) {
-		super(color, ugao, pozicija, element);
+		super(pozicija, element, color, ugao);
 		this.precnik1 = precnik1;
 		this.precnik2 = precnik2;
 		this.oblikPainter = new ElipsaPainter(this);

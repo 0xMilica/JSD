@@ -13,7 +13,7 @@ public abstract class Oblik {
 	public OblikPainter oblikPainter;
 	public Element element;
 	
-	public Oblik(Color color, double ugao, Pozicija pozicija, Element element) {
+	public Oblik(Pozicija pozicija, Element element, Color color, double ugao) {
 		super();
 		this.color = color;
 		this.ugao = ugao;

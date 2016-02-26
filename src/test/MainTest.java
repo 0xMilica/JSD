@@ -2,15 +2,20 @@ package test;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.List;
 
 import model.elements.Elipsa;
 import model.elements.Linija;
 import model.elements.Pravougaonik;
 import model.elements.Trougao;
 import model.elements.ZaobljeniPravougaonik;
+import model.raspored.GridRaspored;
+import model.raspored.KoordinateRaspored;
 import model.raspored.Raspored;
 import model.raspored.StraneSveta;
+import model.raspored.StraneSvetaRaspored;
 import model.Canvas;
+import model.Kafic;
 import model.Oblik;
 import model.Element;
 import model.pozicija.GridPozicija;
@@ -23,8 +28,8 @@ public class MainTest {
 
 	public static void main(String[] args) {
 
-		MainFrame mejnfrejm = new MainFrame();
-		mejnfrejm.setVisible(true);
+		MainFrame mainFrame = new MainFrame();
+		mainFrame.setVisible(true);
 
 		// linije
 		ArrayList<Oblik> oblikLinija1 = new ArrayList<Oblik>();
@@ -51,16 +56,25 @@ public class MainTest {
 		ArrayList<Oblik> oblici10 = new ArrayList<Oblik>();
 		ArrayList<Oblik> oblici12 = new ArrayList<Oblik>();
 		
-		Canvas canvas1 = mejnfrejm.getPanel(0);
-
-		Canvas canvas3 = mejnfrejm.getPanel(1);
-		Canvas canvas4 = mejnfrejm.getPanel(2);
+		List<Canvas>listaNivoa = new ArrayList<Canvas>();
+		Kafic kafic = new Kafic("Ime kafica", listaNivoa);
+		mainFrame.setTitle(kafic.getNaziv());
 		
-		Raspored raspored1 = canvas1.getRaspored();
-
-		Raspored raspored2 = canvas3.getRaspored();
-
-		Raspored raspored4 = canvas4.getRaspored();
+		GridRaspored raspored1 = new GridRaspored(3, 3);
+		KoordinateRaspored raspored2 = new KoordinateRaspored();
+		StraneSvetaRaspored  raspored4 = new StraneSvetaRaspored();
+		
+		Canvas canvas1 = new Canvas("Ime prvog nivoa", 600, 600, Color.WHITE, raspored1, kafic);
+		raspored1.setNivo(canvas1);
+		mainFrame.addTab(canvas1);
+		
+		Canvas canvas3 = new Canvas("Drugi sprat", 500, 600, Color.WHITE, raspored2, kafic);
+		raspored2.setNivo(canvas3);
+		mainFrame.addTab(canvas3);
+		
+		Canvas canvas4 = new Canvas("Treci sprat", 600, 600, Color.WHITE, raspored4, kafic);
+		raspored4.setNivo(canvas4);
+		mainFrame.addTab(canvas4);
 		
 		Pozicija pozicijaElipse1 = new GridPozicija(0, 0, raspored1);
 		Pozicija pozicijaElipse2 = new KoordinatePozicija(150, 150, raspored2);
@@ -102,30 +116,30 @@ public class MainTest {
 		Element elementZaobPravougaonik2 = new Element("elementZaobPravougaonik2", oblici10, canvas3);
 		Element elementZaobPravougaonik3 = new Element("elementZaobPravougaonik3", oblici12, canvas4);
 		
-		Elipsa elipsa1 = new Elipsa(Color.PINK, 0, pozicijaElipse1, elementElipsa1, 150, 100);		
-		Elipsa elipsa2 = new Elipsa(Color.PINK, 0, pozicijaElipse2, elementElipsa2, 200, 100);
-		Elipsa elipsa3 = new Elipsa(Color.PINK, 0, pozicijaElipse3, elementElipsa3, 200, 200);
+		Elipsa elipsa1 = new Elipsa(pozicijaElipse1, elementElipsa1, Color.PINK, 0, 150, 100);		
+		Elipsa elipsa2 = new Elipsa(pozicijaElipse2, elementElipsa2, Color.PINK, 0,200, 100);
+		Elipsa elipsa3 = new Elipsa(pozicijaElipse3, elementElipsa3, Color.PINK, 0, 200, 200);
 		
-		Linija linija1 = new Linija(Color.ORANGE, 0, pozicijaLinije1, elementLinija1, 150);
-		Linija linija2 = new Linija(Color.ORANGE, 30, pozicijaLinije2, elementLinija2, 100);
-		Linija linija3 = new Linija(Color.ORANGE, 0, pozicijaLinije3, elementLinija3, 100);
+		Linija linija1 = new Linija(pozicijaLinije1, elementLinija1, Color.ORANGE, 0, 150);
+		Linija linija2 = new Linija(pozicijaLinije2, elementLinija2, Color.ORANGE, 30, 100);
+		Linija linija3 = new Linija(pozicijaLinije3, elementLinija3, Color.ORANGE, 0, 100);
 		
-		Pravougaonik pravougaonik1 = new Pravougaonik(Color.YELLOW, 0, pozicijaPravougaonik1, elementPravougaonik1, 160, 160);
-		Pravougaonik pravougaonik2 = new Pravougaonik(Color.GRAY, 0, pozicijaPravougaonik2, elementPravougaonik2, 60, 60);
-		Pravougaonik pravougaonik3 = new Pravougaonik(Color.GRAY, 0, pozicijaPravougaonik3, elementPravougaonik3, 100, 160);
+		Pravougaonik pravougaonik1 = new Pravougaonik(pozicijaPravougaonik1, elementPravougaonik1, Color.YELLOW, 0, 160, 160);
+		Pravougaonik pravougaonik2 = new Pravougaonik(pozicijaPravougaonik2, elementPravougaonik2, Color.GRAY, 0, 60, 60);
+		Pravougaonik pravougaonik3 = new Pravougaonik(pozicijaPravougaonik3, elementPravougaonik3, Color.GRAY, 0, 100, 160);
 		
-		Trougao trougao1 = new Trougao(Color.GREEN, 0, pozicijaTrougao2, elementTrougao1, 100, 100, 100);
-		Trougao trougao2 = new Trougao(Color.GREEN, 0, pozicijaTrougao1, elementTrougao2, 100, 100, 100);
-		Trougao trougao3 = new Trougao(Color.GREEN, 0, pozicijaTrougao3, elementTrougao3, 100, 100, 100);
+		Trougao trougao1 = new Trougao(pozicijaTrougao2, elementTrougao1, Color.GREEN, 0, 100, 100, 100);
+		Trougao trougao2 = new Trougao(pozicijaTrougao1, elementTrougao2, Color.GREEN, 0, 100, 100, 100);
+		Trougao trougao3 = new Trougao(pozicijaTrougao3, elementTrougao3, Color.GREEN, 0, 100, 100, 100);
 		
 		ZaobljeniPravougaonik zaobPravougaonik1 = new ZaobljeniPravougaonik
-				(Color.CYAN, 0, pozicijaZaobPravougaonik1, elementZaobPravougaonik1, 120, 180, 15, 15);
+				(pozicijaZaobPravougaonik1, elementZaobPravougaonik1, Color.CYAN, 0, 120, 180, 15, 15);
 		
 		ZaobljeniPravougaonik zaobPravougaonik2 = new ZaobljeniPravougaonik
-				(Color.CYAN, 0, pozicijaZaobPravougaonik2, elementZaobPravougaonik2, 120, 180, 15, 15);
+				(pozicijaZaobPravougaonik2, elementZaobPravougaonik2, Color.CYAN, 0, 120, 180, 15, 15);
 		
 		ZaobljeniPravougaonik zaobPravougaonik3 = new ZaobljeniPravougaonik
-				(Color.CYAN, 0, pozicijaZaobPravougaonik3, elementZaobPravougaonik3, 160, 160, 15, 15);
+				(pozicijaZaobPravougaonik3, elementZaobPravougaonik3, Color.CYAN, 0, 160, 160, 15, 15);
 		
 		oblikLinija1.add(linija1);
 		oblikLinija2.add(linija2);

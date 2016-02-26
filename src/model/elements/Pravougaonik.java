@@ -19,8 +19,8 @@ public class Pravougaonik extends Oblik {
 	private int a;
 	private int b;
 	
-	public Pravougaonik(Color color, double ugao, Pozicija pozicija, Element element, int a, int b) {
-		super(color, ugao, pozicija, element);
+	public Pravougaonik(Pozicija pozicija, Element element, Color color, double ugao, int a, int b) {
+		super(pozicija, element, color, ugao);
 		this.a = a;
 		this.b = b;
 		this.oblikPainter = new PravougaonikPainter(this);
